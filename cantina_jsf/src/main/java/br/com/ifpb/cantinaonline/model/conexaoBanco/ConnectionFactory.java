@@ -13,7 +13,7 @@ public class ConnectionFactory {
 
     public ConnectionFactory(){
         usuario ="postgres";
-       senha = "postgres";
+       senha = "1234";
 
         url = "jdbc:postgresql://localhost:5432/CantinaJsf";
     }

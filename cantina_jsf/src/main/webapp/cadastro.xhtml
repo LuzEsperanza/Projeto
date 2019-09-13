@@ -55,15 +55,17 @@
             <h:inputText id="email" required="true" validator="emailValidator" requiredMessage="E-mail é obrigatório" value="#{cadastroBean.usuario.email}" />
             <h:message for="email" />
 
-<!--            <h:outputLabel value="Senha: " />-->
-<!--            <h:inputSecret id="senha" required="true" requiredMessage="Senha obrigatória" value="#{cadastroBean.usuario.senha}" />-->
-<!--            <h:message for="senha" />-->
 
             <h:outputLabel value="Senha Validada: " />
             <p:password id="passwordInput" requiredMessage="Senha Obrigatória" class="password" size="40" maxlength="20"
                         value="#{cadastroBean.usuario.senha}" required="true"
                         validatorMessage="Senha válida somente no padrão ipe@1234.">
-                <f:validateRegex pattern="((\\d)*([a-z])*([A-Z])*([@#$%])*){6,20})"/> </p:password>
+                <f:validateRegex pattern="((\\d)*([a-z])*([A-Z])*([@#$%])*){6,20})"/>
+            </p:password>
+            <!--            <h:outputLabel value="Senha: " />-->
+            <!--            <h:inputSecret id="senha" required="true" requiredMessage="Senha obrigatória" value="#{cadastroBean.usuario.senha}" />-->
+            <!--            <h:message for="senha" />-->
+
 
             <h:outputLabel value="Telefone: " />
             <h:inputText id="telefone" required="true" requiredMessage="Login é obrigatório" value="#{cadastroBean.usuario.telefone}" />
@@ -75,7 +77,7 @@
 <!--            </h:selectOneRadio>-->
 
 <!--            <p:outputLabel for="console" value="Função:" />-->
-            <p:selectOneRadio id="console" value="#{cadastroBean.usuario.funcao}" unselectable="true">
+            <p:selectOneRadio id="console" value="#{cadastroBean.usuario.funcao}" unselectable="true" valueChangeListener="Função">
                 <f:selectItem itemLabel="Funcionario" itemValue="Funcionario" />
                 <f:selectItem itemLabel="Cliente" itemValue="Cliente" />
             </p:selectOneRadio>

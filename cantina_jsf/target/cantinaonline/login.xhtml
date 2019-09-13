@@ -21,11 +21,26 @@
                     <h:inputSecret required="true" requiredMessage="Senha obrigatória" id="senha" value="#{loginBean.senha}" />
                     <h:message for="senha" />
 
-                    <center> <h:commandButton style="width: 10%; background: #9575cd;"  value="Login" action="#{loginBean.efetuarLogin}" /></center>
+                    <center>
+
+                        <h:commandButton style="width: 10%; background: #9575cd;"  value="Login" action="#{loginBean.efetuarLogin}" />
+
+                    </center>
+
+
+
 
                 </h:panelGrid>
 
             </h:form>
+             <center >
+                 <h:form>
+                     <h:commandButton style="width: 10%; background: #9575cd;"  value="Voltar" action="template.xhtml" />
+                 </h:form>
+
+             </center>
+
+
             </div>
 
         </f:view>
