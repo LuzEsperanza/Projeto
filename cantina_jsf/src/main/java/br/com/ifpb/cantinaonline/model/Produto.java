@@ -1,6 +1,9 @@
 package br.com.ifpb.cantinaonline.model;
 
+import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
+
 public class Produto {
+    @PartitionKey
     String id;
     String nome;
     double preco;

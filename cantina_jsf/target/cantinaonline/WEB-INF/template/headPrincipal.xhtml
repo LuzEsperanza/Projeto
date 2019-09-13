@@ -88,8 +88,8 @@
                 </div>
                 <div class="col s3" style="margin-top: 10px;">
                     <h:form>
-                        <p:commandButton action="login.xhtml" styleClass="btn waves-effect transparent" style="margin: 10px; color: black; background: #9575cd; border-radius: 10px; width: auto" value="Login"/>
-                        <p:commandButton action="cadastro.xhtml" styleClass="btn waves-effect transparent" style="margin: 10px; color: black; background: #9575cd; border-radius: 10px; width: auto" value="Cadastrar"/>
+                        <p:commandButton action="#{loginBean.setActionBtnOne}" styleClass="btn waves-effect transparent" style="margin: 10px; color: black; background: #9575cd; border-radius: 10px; width: auto" value="#{loginBean.setButtonOne()}"/>
+                        <p:commandButton action="#{loginBean.setActionBtnTwo}" styleClass="btn waves-effect transparent" style="margin: 10px; color: black; background: #9575cd; border-radius: 10px; width: auto" value="#{loginBean.setButtonTwo()}"/>
                     </h:form>
                 </div>
                 <div class="col s2">

@@ -1,6 +1,9 @@
 package br.com.ifpb.cantinaonline.model;
 
+import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
+
 public class Usuario {
+    @PartitionKey
     private String nomeCompleto;
     private String nomeUsuario;
     private Integer idade;

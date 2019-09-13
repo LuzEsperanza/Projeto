@@ -1,9 +1,10 @@
 package br.com.ifpb.cantinaonline.model.conexaoBanco;
 
+import com.datastax.oss.driver.api.core.CqlSession;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ConnectionFactory {
 
@@ -21,6 +22,11 @@ public class ConnectionFactory {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
         return DriverManager.getConnection(url,usuario,senha);
+    }
+    public void conexaoCassandra (){
+        try (CqlSession session = CqlSession.builder().withKeyspace("IQueFome").build()){
+            IQueFomeMapper iQueFomeMapper = new IQueFomeMapper(session).build();
+        }
     }
 
 

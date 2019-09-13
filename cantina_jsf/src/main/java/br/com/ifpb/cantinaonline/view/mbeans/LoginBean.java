@@ -15,16 +15,17 @@ import java.sql.SQLException;
 public class LoginBean {
     private String nomeUsuario;
     private String senha;
-
+    private  UsuarioDAOBD usuarioDAOBD = new UsuarioDAOBD();
     private Acesso usuarioLogado;
+    private String btName;
 
     public String efetuarLogin() throws SQLException, ClassNotFoundException {
         this.usuarioLogado = new Acesso(nomeUsuario,senha,"","");
-        UsuarioDAOBD usuarioDAOBD = new UsuarioDAOBD();
+
 
         if(usuarioDAOBD.buscar(usuarioLogado) != null){
             System.out.println(usuarioDAOBD.buscar(usuarioLogado));
-            return "usuario.xhtml";
+            return "template.xhtml";
         } else {
             FacesMessage message = new FacesMessage("Login ou Senha incorretos", "Login ou Senha incorretos");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -42,6 +43,39 @@ public class LoginBean {
         HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
         session.invalidate();
         return "login.xhtml";
+    }
+    public String setButtonOne(){
+        if(usuarioLogado==null){
+            btName = "Login";
+            return btName;
+        }
+        else {
+            btName = "Logout";
+            return btName;
+        }
+    }
+    public String setButtonTwo(){
+        if(usuarioLogado==null){
+            return "Cadastro";
+        }
+        else return usuarioLogado.getNomeUsuario();
+    }
+    public String setActionBtnOne(){
+        if(usuarioLogado==null){
+            return "login.xhtml";
+        }
+        else{
+            usuarioLogado=null;
+            return "template.html";
+        }
+    }
+    public String setActionBtnTwo(){
+        if(usuarioLogado==null){
+            return "cadastro.xhtml";
+        }
+        else {
+            return "#";
+        }
     }
 
     public Acesso getUsuarioLogado(){
