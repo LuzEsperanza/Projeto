@@ -1,5 +1,6 @@
 package br.com.ifpb.cantinaonline.model.conexaoBanco;
 
+import br.com.ifpb.cantinaonline.model.dao.ProdutoDAO;
 import com.datastax.oss.driver.api.core.CqlSession;
 
 import java.sql.Connection;
@@ -24,10 +25,10 @@ public class ConnectionFactory {
         return DriverManager.getConnection(url,usuario,senha);
     }
     public void conexaoCassandra (){
-        try (CqlSession session = CqlSession.builder().withKeyspace("IQueFome").build()){
-            IQueFomeMapper iQueFomeMapper = new IQueFomeMapper(session).build();
+        try (CqlSession session = CqlSession.builder().withKeyspace("IQueFome").build()) {
+            IQueFomeMapper iQueFomeMapper = new IQueFomeMapperBuilder(session).build();
+            ProdutoDAO produtoDAO = IQueFomeMapper.produtoDao();
         }
     }
-
 
 }

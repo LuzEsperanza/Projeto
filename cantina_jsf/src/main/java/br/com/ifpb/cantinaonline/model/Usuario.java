@@ -4,6 +4,7 @@ import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 
 public class Usuario {
     @PartitionKey
+    private int Id;
     private String nomeCompleto;
     private String nomeUsuario;
     private Integer idade;
@@ -104,5 +105,13 @@ public class Usuario {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 }
