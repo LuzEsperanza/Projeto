@@ -2,13 +2,16 @@ package br.com.ifpb.cantinaonline.model.dao;
 
 
 import br.com.ifpb.cantinaonline.model.Acesso;
+import br.com.ifpb.cantinaonline.model.Endereco;
 import br.com.ifpb.cantinaonline.model.Usuario;
 import br.com.ifpb.cantinaonline.model.conexaoBanco.ConnectionFactory;
+import sun.rmi.server.UnicastServerRef;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 
@@ -97,7 +100,38 @@ public class UsuarioDAOBD implements UsuarioDAO {
 
         }
     }
+    public Usuario getUser (String nomeUsuario) throws SQLException, ParseException, ClassNotFoundException {
+        Usuario user = new Usuario();
+        Endereco place = new Endereco();
+        String sql = "select * from postagem where nomeUsuario="+nomeUsuario;
+        Connection conexao = new ConnectionFactory().getConnection();
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
 
+        while (rs.next()) {
+            user.setId(rs.getInt("id"));
+            user.setNomeCompleto(rs.getString("nomeCompleto"));
+            user.setNomeUsuario(rs.getString("nomeUsuario"));
+            user.setIdade(rs.getInt("idade"));
+            user.setEmail(rs.getString("email"));
+            user.setSenha(rs.getString("senha"));
+            user.setTelefone(rs.getString("telefone"));
+            user.setFuncao(rs.getString("funcao"));
+        }
+        String sqlTwo = "select * from usuario where id="+user.getId();
+        PreparedStatement stmtTwo = conexao.prepareStatement(sqlTwo);
+        ResultSet rsTwo = stmt.executeQuery();
+        while (rsTwo.next()) {
+            place.setCidade(rsTwo.getString("cidade"));
+            place.setBairro(rsTwo.getString("bairro"));
+            place.setRua(rsTwo.getString("rua"));
+            place.setNumero(rsTwo.getInt("numero"));
+        }
+        user.setEndereco(place);
+        stmt.close();
+        conexao.close();
+        return user;
+}
 
 
 }

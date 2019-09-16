@@ -18,6 +18,7 @@ public class DAORedis {
         produtoList = null;
     }
     public boolean salvar(int id){
+        if (id==0){return false;}
         return jedis.set(""+id,gson.toJson(produtoList),
                 SetParams.setParams()) != null;
     }

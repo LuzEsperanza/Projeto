@@ -3,6 +3,7 @@ package br.com.ifpb.cantinaonline.model.dao;
 import br.com.ifpb.cantinaonline.model.Acesso;
 import br.com.ifpb.cantinaonline.model.Produto;
 import br.com.ifpb.cantinaonline.model.Usuario;
+import com.datastax.oss.driver.api.mapper.annotations.Delete;
 import com.datastax.oss.driver.api.mapper.annotations.Insert;
 import com.datastax.oss.driver.api.mapper.annotations.Query;
 import com.datastax.oss.driver.api.mapper.annotations.Select;
@@ -20,4 +21,6 @@ public interface UsuarioDAO {
     Usuario buscar(String nomeCompleto);
     @Query("SELECT * FROM Usuario WHERE  nomeUsuario = :nomeUsuario")
     Produto buscarPorNomeUsuario(String nomeUsuario);
+    @Delete
+    void apagar(Usuario user);
 }

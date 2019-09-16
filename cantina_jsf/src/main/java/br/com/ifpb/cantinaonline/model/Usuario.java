@@ -4,7 +4,7 @@ import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 
 public class Usuario {
     @PartitionKey
-    private int Id;
+    private int id;
     private String nomeCompleto;
     private String nomeUsuario;
     private Integer idade;
@@ -19,7 +19,8 @@ public class Usuario {
    }
 
 
-    public Usuario(String nomeCompleto, String nomeUsuario, Integer idade, String senha, String telefone, String funcao, Endereco endereco) {
+    public Usuario(int id, String nomeCompleto, String nomeUsuario, Integer idade, String senha, String telefone, String funcao, Endereco endereco) {
+        this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.nomeUsuario = nomeUsuario;
         this.idade = idade;
@@ -108,10 +109,10 @@ public class Usuario {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 }
