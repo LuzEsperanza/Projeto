@@ -101,7 +101,7 @@
 
                         <div align="right">
                             <p:commandButton onclick="PF('dlg2').hide();" value="Cancelar" styleClass="btn waves-effect purple lighten-3" style="margin: 1%; color: black;background: #9575cd;border-radius: 10px; width: auto"/>
-                            <p:commandButton onclick="PF('dlg2').hide();" value="Comprar" styleClass="btn waves-effect purple lighten-3" style="margin: 1%; color: black;background: #9575cd;border-radius: 10px; width: auto"/>
+                            <p:commandButton onclick="PF('dlg2').hide();" action="#{daoRedis.salvar(loginBean.getUserID)}" value="Comprar" styleClass="btn waves-effect purple lighten-3" style="margin: 1%; color: black;background: #9575cd;border-radius: 10px; width: auto"/>
                         </div>
 
                     </p:dialog>

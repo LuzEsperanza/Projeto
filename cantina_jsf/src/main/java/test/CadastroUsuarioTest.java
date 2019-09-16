@@ -29,14 +29,14 @@ public class CadastroUsuarioTest {
 
     @Test(expected = UsuarioException.class)
     public void testarNomeValido() throws CampoNuloException, SQLException, ClassNotFoundException, UsuarioException {
-        Usuario usuario = new Usuario("Daniel", "daniel123", 20,"daniel123@gmal.com",
+        Usuario usuario = new Usuario(1,"Daniel", "daniel123", 20,"daniel123@gmal.com",
                 "123","funcionario", new Endereco("Cidade", "Bairro","Rua",10));
        validacao.cadastrarUsuario(usuario);
     }
 
     @Test(expected = UsuarioException.class)
     public void nomeUsuariorepetido() throws SQLException, ClassNotFoundException, UsuarioException {
-        Usuario usuario = new Usuario("João", "joao123", 29, "joao123@gmail.com","40028922",
+        Usuario usuario = new Usuario(2, "João", "joao123", 29, "joao123@gmail.com","40028922",
                 "cliente", new Endereco("Cidade", "bairro","Rua",10));
         validacao.nomeRepetido(usuario);
         validacao.nomeRepetido(usuario);

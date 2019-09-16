@@ -7,12 +7,12 @@ import redis.clients.jedis.params.SetParams;
 
 import java.util.List;
 
-public class DAORedis {
+public class DaoRedis {
     private Jedis jedis;
     private Gson gson;
     private List<Produto> produtoList;
 
-    public DAORedis(){
+    public DaoRedis(){
         jedis = new Jedis();
         gson = new Gson();
         produtoList = null;

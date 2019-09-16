@@ -9,6 +9,11 @@ import com.datastax.oss.driver.api.mapper.annotations.Mapper;
 @Mapper
 public interface IQueFomeMapper {
     @DaoFactory
-    UsuarioDAO usuarioDao();
-    ProdutoDAO produtoDao();
+    default UsuarioDAO usuarioDao() {
+        return null;
+    }
+
+    static ProdutoDAO produtoDao() {
+        return null;
+    }
 }

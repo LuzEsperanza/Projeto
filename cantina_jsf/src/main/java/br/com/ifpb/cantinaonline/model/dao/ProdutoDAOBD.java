@@ -1,6 +1,7 @@
 package br.com.ifpb.cantinaonline.model.dao;
 
 import br.com.ifpb.cantinaonline.model.Produto;
+import br.com.ifpb.cantinaonline.model.Usuario;
 import br.com.ifpb.cantinaonline.model.conexaoBanco.ConnectionFactory;
 
 import java.sql.Connection;
@@ -83,5 +84,20 @@ public class ProdutoDAOBD implements ProdutoDAO {
             return arrayList;
 
         }
+    }
+
+    @Override
+    public void salvar(Usuario pessoa) {
+
+    }
+
+    @Override
+    public Produto buscar(int id) {
+        return null;
+    }
+
+    @Override
+    public Produto buscarPorNome(String nome) {
+        return null;
     }
 }

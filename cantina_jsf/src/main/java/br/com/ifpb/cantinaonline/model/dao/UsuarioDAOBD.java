@@ -3,9 +3,9 @@ package br.com.ifpb.cantinaonline.model.dao;
 
 import br.com.ifpb.cantinaonline.model.Acesso;
 import br.com.ifpb.cantinaonline.model.Endereco;
+import br.com.ifpb.cantinaonline.model.Produto;
 import br.com.ifpb.cantinaonline.model.Usuario;
 import br.com.ifpb.cantinaonline.model.conexaoBanco.ConnectionFactory;
-import sun.rmi.server.UnicastServerRef;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -70,6 +70,26 @@ public class UsuarioDAOBD implements UsuarioDAO {
                 return null;
             }
         }
+    }
+
+    @Override
+    public void salvar(Usuario pessoa) {
+
+    }
+
+    @Override
+    public Usuario buscar(String nomeCompleto) {
+        return null;
+    }
+
+    @Override
+    public Produto buscarPorNomeUsuario(String nomeUsuario) {
+        return null;
+    }
+
+    @Override
+    public void apagar(Usuario user) {
+
     }
 
     public ArrayList listarUsuario() throws SQLException, ClassNotFoundException{
